@@ -77,7 +77,7 @@ body.mod-windows:not(.adaptive-mode-off) {
       color: var(--icon-color-focused);
       background-color: var(--background-primary);
     }
-    .clickable-icon:not([aria-disabled="true"], .modal-close-button):hover,
+    .clickable-icon:not([aria-disabled="true"], .modal-close-button, .modal-header-button):hover,
     .clickable-icon.has-active-menu {
       background-color: var(--background-modifier-hover);
     }
@@ -283,7 +283,8 @@ body.mod-windows:not(.adaptive-mode-off):not(.is-mobile) {
     animation: none;
   }
 
-  .modal-close-button {
+  .modal-close-button,
+  .modal-header-button {
     top: 0;
     inset-inline-end: 0 !important;
     padding-inline: 16px;

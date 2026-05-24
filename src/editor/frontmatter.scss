@@ -32,7 +32,7 @@
   .metadata-input-longtext:not(:focus) {
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    white-space: pre;
   }
   .metadata-link {
     width: 100%;

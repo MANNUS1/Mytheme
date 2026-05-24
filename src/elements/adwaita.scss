@@ -260,7 +260,8 @@ body.mod-linux:not(.is-android):not(.adaptive-mode-off):not(.is-mobile) {
 
   // Modal
   .modal {
-    .modal-close-button {
+    .modal-close-button,
+    .modal-header-button {
       --icon-stroke: 4px;
       color: var(--text-normal);
       width: 24px;
