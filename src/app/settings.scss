@@ -1,3 +1,8 @@
+body.mod-macos:not(.is-mobile) .mod-settings {
+  --dropdown-background: inherit;
+  --dropdown-icon-background: transparent;
+}
+
 body:not(.is-phone) {
   --setting-items-radius: var(--radius-m);
   --setting-items-padding: calc(16px * var(--density-modifier)) 16px;
@@ -14,6 +19,13 @@ body:not(.is-phone) {
     .vertical-tab-header {
       border-inline-end: none;
     }
+    .vertical-tab-nav-item-icon {
+      color: inherit;
+    }
+    .vertical-tab-header-group-container:hover,
+    .vertical-tab-content:hover {
+      will-change: transform;
+    }
     .vertical-tab-header-group-title,
     .vertical-tab-nav-item {
       padding: calc(8px * var(--density-modifier)) 12px;
@@ -24,12 +36,13 @@ body:not(.is-phone) {
     .vertical-tab-content {
       background-color: var(--modal-sidebar-background);
     }
-
     .setting-group-search {
       padding: 0 0 8px;
       background-color: transparent;
     }
-
+    .setting-item-heading {
+      border: none;
+    }
     .setting-item-name {
       overflow: visible;
     }
