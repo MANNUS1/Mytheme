@@ -59,7 +59,11 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) {
   }
 
   // Windows & Linux fix
-  &:not(.mod-macos).is-hidden-frameless .workspace.is-left-sidedock-open:not(.is-right-sidedock-open) .mod-root .workspace-tabs.mod-top-right-space .workspace-tab-header-container {
+  &:not(.mod-macos).is-hidden-frameless
+    .workspace.is-left-sidedock-open:not(.is-right-sidedock-open)
+    .mod-root
+    .workspace-tabs.mod-top-right-space
+    .workspace-tab-header-container {
     padding-right: var(--frame-right-space);
   }
 }

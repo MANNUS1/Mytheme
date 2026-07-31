@@ -25,7 +25,8 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) {
 body:is(.mod-macos, .adaptive-mode-off):not(.is-phone) {
   // Editor panel
   &.theme-light {
-    --shadow-tab: var(--shadow-base), 0 0 1px rgba(0, 0, 0, 0.2), inset 0 -8px 48px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.025), 0 2px 4px rgba(0, 0, 0, 0.025);
+    --shadow-tab:
+      var(--shadow-base), 0 0 1px rgba(0, 0, 0, 0.2), inset 0 -8px 48px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.025), 0 2px 4px rgba(0, 0, 0, 0.025);
   }
   &.theme-dark {
     --shadow-tab: var(--shadow-base), 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -86,7 +87,7 @@ body:is(.mod-macos, .adaptive-mode-off).is-tablet {
   .workspace-drawer.mod-left.is-pinned {
     margin-right: 8px;
   }
-  
+
   .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active {
     background-color: var(--raised-background) !important;
     box-shadow: var(--shadow-tab);

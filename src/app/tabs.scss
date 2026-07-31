@@ -170,7 +170,7 @@ body.mod-macos:not(.is-mobile):not(.tab-floating) {
       }
     }
   }
-  
+
   &.is-fullscreen .mod-root .workspace-tabs:not(.mod-stacked) {
     @container (min-width: 560px) {
       // Both sidedocks hidden
@@ -210,7 +210,8 @@ body:not(.mod-macos):not(.is-mobile):not(.tab-floating) {
         padding-left: var(--tab-action-width);
       }
       // Left split pane & Non-top pane
-      &:is(.mod-root > .workspace-tabs):not(:only-of-type):first-of-type:not(.mod-top-left-space):not(.mod-top-right-space) .workspace-tab-header-container-inner,
+      &:is(.mod-root > .workspace-tabs):not(:only-of-type):first-of-type:not(.mod-top-left-space):not(.mod-top-right-space)
+        .workspace-tab-header-container-inner,
       &:not(.mod-top) .workspace-tab-header-container-inner {
         padding-left: calc(var(--tab-action-width) * 2);
       }
