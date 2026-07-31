@@ -36,7 +36,7 @@ body.is-android:not(.adaptive-mode-off) {
   --radius-xl: calc(28px * var(--radius-modifier));
   --input-radius: var(--radius-s);
   --button-radius: 100vh;
-  --clickable-icon-radius: 100vh;
+  --clickable-icon-radius: 100vh !important;
   --tab-radius: var(--radius-m);
 
   --toggle-border-width: 4px;
@@ -243,18 +243,10 @@ body.is-android:not(.adaptive-mode-off).is-mobile {
 }
 
 body.is-android:not(.adaptive-mode-off):not(.is-phone) {
-  @keyframes menuInMaterial {
-    from {
-      opacity: 0;
-      transform: translateY(-4px) scaleY(95%);
-    }
-  }
-
   // Menu
   .menu,
   .suggestion-container {
     transform-origin: top center;
-    animation: menuInMaterial var(--anim-duration-fast) forwards;
 
     .menu-item,
     .suggestion-item {
