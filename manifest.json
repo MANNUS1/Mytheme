@@ -1,8 +1,7 @@
 {
-  "name": "Cupertino",
-  "version": "3.2.12",
+  "name": "Mytheme",
+  "version": "1.0.0",
   "minAppVersion": "1.13.4",
-  "author": "Alexis C",
-  "authorUrl": "https://github.com/aaaaalexis",
-  "fundingUrl": "https://www.buymeacoffee.com/sevenaxis"
+  "author": "Manuel Aranda",
+  "authorUrl": "https://github.com/MANNUS1"
 }

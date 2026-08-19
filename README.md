@@ -1,14 +1,13 @@
 <div align="center">
 
+# Mytheme
+
 ![](img/hero.png)
 
 ### Crafted for the way you think.
 
-_Best Theme of [Obsidian Gems of the Year 2024](https://obsidian.md/blog/2024-goty-winners/)_
-
-[![](https://img.shields.io/badge/Made%20in-Taiwan-blue?style=for-the-badge)](https://wikipedia.org/wiki/Taiwan)
-[![](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Donate-green?style=for-the-badge&logo=buymeacoffee)](https://www.buymeacoffee.com/sevenaxis)
-[![](https://img.shields.io/badge/Obsidian-Install-purple?style=for-the-badge&logo=obsidian)](https://aaaaalexis.github.io/obsidian-baseline/install?name=Cupertino)
+> [!NOTE]
+> **Mytheme** is a customized theme for Obsidian, based on [Cupertino](https://github.com/aaaaalexis/obsidian-cupertino) by [@aaaaalexis](https://github.com/aaaaalexis).
 
 </div>
 
@@ -193,4 +192,4 @@ Add at the end of the image link, e.g. `![[image.jpeg#invert]]`
 
 ## License
 
-Cupertino is licensed under the [MIT license](LICENSE).
+Mytheme is licensed under the [MIT license](LICENSE.txt). Originally created as Cupertino by [@aaaaalexis](https://github.com/aaaaalexis).
