@@ -7084,6 +7084,189 @@ body:not(.is-mobile).hover-ribbon.show-ribbon.mod-macos:not(.is-fullscreen).is-h
   padding-left: 88px;
 }
 
+body:not(.is-mobile) {
+  --floating-sidedock-width: 320px;
+}
+body:not(.is-mobile) .workspace-ribbon.mod-left {
+  display: none !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+body:not(.is-mobile) .workspace {
+  position: relative !important;
+  z-index: 20 !important;
+  background-color: var(--background-primary) !important;
+}
+body:not(.is-mobile) .mod-sidedock {
+  position: absolute !important;
+  top: 8px !important;
+  bottom: 8px !important;
+  height: calc(100% - 16px) !important;
+  margin: 0 !important;
+  z-index: 999 !important;
+  width: var(--floating-sidedock-width) !important;
+  background-color: var(--modal-background) !important;
+  backdrop-filter: var(--blur-m) !important;
+  -webkit-backdrop-filter: var(--blur-m) !important;
+  border: none !important;
+  border-radius: var(--radius-window, 8px) !important;
+  box-shadow: var(--shadow-s) !important;
+  overflow: hidden !important;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), opacity 200ms ease !important;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto !important;
+}
+body:not(.is-mobile) .mod-sidedock.is-sidedock-collapsed {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+body:not(.is-mobile) .mod-sidedock .workspace-tabs,
+body:not(.is-mobile) .mod-sidedock .workspace-leaf,
+body:not(.is-mobile) .mod-sidedock .workspace-leaf-content,
+body:not(.is-mobile) .mod-sidedock .workspace-tab-container,
+body:not(.is-mobile) .mod-sidedock .view-content,
+body:not(.is-mobile) .mod-sidedock .nav-files-container,
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header-container,
+body:not(.is-mobile) .mod-sidedock .nav-header,
+body:not(.is-mobile) .mod-sidedock .workspace-sidedock-vault-profile {
+  background-color: transparent !important;
+}
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header-container {
+  min-height: var(--header-height, 48px) !important;
+  max-height: var(--header-height, 48px) !important;
+  height: var(--header-height, 48px) !important;
+  padding-block: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  pointer-events: auto !important;
+}
+body:not(.is-mobile) .mod-sidedock.mod-left-split {
+  left: 8px !important;
+  margin: 0 !important;
+  transform: translateX(0) !important;
+}
+body:not(.is-mobile) .mod-sidedock.mod-left-split.is-sidedock-collapsed {
+  transform: translateX(calc(-100% - 24px)) !important;
+}
+body:not(.is-mobile) .mod-sidedock.mod-right-split {
+  right: 8px !important;
+  transform: translateX(0) !important;
+}
+body:not(.is-mobile) .mod-sidedock.mod-right-split.is-sidedock-collapsed {
+  transform: translateX(calc(100% + 24px)) !important;
+}
+body:not(.is-mobile) .workspace-split.mod-root,
+body:not(.is-mobile) .workspace .mod-root {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 1 1 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+body:not(.is-mobile) .workspace-split.mod-root > .workspace-tabs .workspace-tab-header-container,
+body:not(.is-mobile) .workspace .mod-root .workspace-tabs .workspace-tab-header-container {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  padding-right: var(--frame-right-space, 0px) !important;
+  transition: none !important;
+}
+body:not(.is-mobile) .workspace-split.mod-root > .workspace-tabs .workspace-tab-header-container .workspace-tab-header-container-inner,
+body:not(.is-mobile) .workspace .mod-root .workspace-tabs .workspace-tab-header-container .workspace-tab-header-container-inner {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: auto !important;
+  max-width: 60% !important;
+  z-index: 1 !important;
+  -webkit-app-region: no-drag !important;
+}
+body:not(.is-mobile) .workspace-split.mod-root > .workspace-tabs .workspace-tab-header-container .sidebar-toggle-button.mod-left,
+body:not(.is-mobile) .workspace .mod-root .workspace-tabs .workspace-tab-header-container .sidebar-toggle-button.mod-left {
+  margin-right: auto !important;
+  z-index: 2 !important;
+  -webkit-app-region: no-drag !important;
+}
+body:not(.is-mobile) .workspace-split.mod-root > .workspace-tabs .workspace-tab-header-container .workspace-tab-header-new-tab,
+body:not(.is-mobile) .workspace .mod-root .workspace-tabs .workspace-tab-header-container .workspace-tab-header-new-tab {
+  margin-left: auto !important;
+  z-index: 2 !important;
+  -webkit-app-region: no-drag !important;
+}
+body:not(.is-mobile) .workspace-split.mod-root > .workspace-tabs .workspace-tab-header-container .sidebar-toggle-button.mod-right,
+body:not(.is-mobile) .workspace .mod-root .workspace-tabs .workspace-tab-header-container .sidebar-toggle-button.mod-right {
+  z-index: 2 !important;
+  margin-left: 0 !important;
+  -webkit-app-region: no-drag !important;
+}
+
+body.is-hidden-frameless .mod-sidedock,
+body.is-hidden-frameless .mod-sidedock *,
+body.is-hidden-frameless .mod-sidedock .workspace-tab-header-container,
+body.is-hidden-frameless .mod-sidedock .workspace-tab-header-container *,
+body.is-hidden-frameless .mod-sidedock .workspace-tab-header-spacer,
+body.is-hidden-frameless .mod-sidedock .workspace-sidedock-vault-profile,
+body.is-hidden-frameless .mod-sidedock .workspace-sidedock-vault-profile *,
+body.is-hidden-frameless .mod-sidedock .nav-buttons-container,
+body.is-hidden-frameless .mod-sidedock .nav-buttons-container *,
+body.is-hidden-frameless .mod-sidedock .nav-action-button,
+body.is-hidden-frameless .mod-sidedock .clickable-icon,
+body.is-hidden-frameless .mod-sidedock svg,
+body.is-hidden-frameless .mod-sidedock path,
+body:not(.is-mobile) .mod-sidedock,
+body:not(.is-mobile) .mod-sidedock *,
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header-container,
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header-container *,
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header-spacer,
+body:not(.is-mobile) .mod-sidedock .workspace-sidedock-vault-profile,
+body:not(.is-mobile) .mod-sidedock .workspace-sidedock-vault-profile *,
+body:not(.is-mobile) .mod-sidedock .nav-buttons-container,
+body:not(.is-mobile) .mod-sidedock .nav-buttons-container *,
+body:not(.is-mobile) .mod-sidedock .nav-action-button,
+body:not(.is-mobile) .mod-sidedock .clickable-icon,
+body:not(.is-mobile) .mod-sidedock svg,
+body:not(.is-mobile) .mod-sidedock path,
+body .mod-sidedock,
+body .mod-sidedock *,
+body .mod-sidedock .workspace-tab-header-container,
+body .mod-sidedock .workspace-tab-header-container *,
+body .mod-sidedock .workspace-tab-header-spacer,
+body .mod-sidedock .workspace-sidedock-vault-profile,
+body .mod-sidedock .workspace-sidedock-vault-profile *,
+body .mod-sidedock .nav-buttons-container,
+body .mod-sidedock .nav-buttons-container *,
+body .mod-sidedock .nav-action-button,
+body .mod-sidedock .clickable-icon,
+body .mod-sidedock svg,
+body .mod-sidedock path {
+  -webkit-app-region: no-drag !important;
+  pointer-events: auto !important;
+}
+
+.titlebar {
+  pointer-events: none !important;
+  -webkit-app-region: no-drag !important;
+}
+.titlebar .titlebar-button-container {
+  pointer-events: auto !important;
+  -webkit-app-region: no-drag !important;
+}
+
+body .menu,
+body .popover.hover-popover {
+  z-index: 9999 !important;
+  background-color: var(--modal-background) !important;
+  backdrop-filter: var(--blur-m) !important;
+  -webkit-backdrop-filter: var(--blur-m) !important;
+}
+
 body.mod-windows:not(.adaptive-mode-off) .nav-files-container > div {
   --nav-item-background-active: var(--background-modifier-hover);
   --nav-item-color-active: var(--nav-item-color);

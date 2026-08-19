@@ -20,8 +20,8 @@ description: Flujo iterativo para prototipado en vivo (vía Devtools/CDP) y desa
    ```
    *(Garantiza que cualquier cambio guardado en `src/` compile de inmediato a `theme.css` y se sincronice vía symlink en `/home/manu/Documents/repositorios/Dots/obsidian/template/.obsidian/themes/Mytheme`).*
 3. **Bóveda de pruebas:** Inicia Obsidian con el puerto de depuración DevTools (CDP) expuesto.
-4. **Prototipado en memoria:** Inyecta soluciones dinámicas directamente en memoria usando `evaluate_script` (devtools) o ajusta variables SCSS en vivo.
-5. El usuario revisará los cambios visualmente y guiará la iteración.
+4. **Prototipado en memoria:** Inyecta soluciones dinámicas directamente en memoria usando `evaluate_script` (devtools).
+5. **Cero Screenshots / Latencia Cero:** Prohibido tomar capturas de pantalla automáticas. La retroalimentación se basa en métricas de DOM computadas (`getBoundingClientRect`, `getComputedStyle`) y la validación visual inmediata del usuario en su pantalla física.
 
 ## Fase 3: Feedback y Recolección
 1. Itera inyectando ajustes al DOM según las instrucciones del usuario.
