@@ -7112,47 +7112,24 @@ body:not(.is-mobile) .workspace .mod-root .workspace-tabs .workspace-tab-header-
   -webkit-app-region: no-drag !important;
 }
 
-body.is-hidden-frameless .mod-sidedock,
-body.is-hidden-frameless .mod-sidedock *,
-body.is-hidden-frameless .mod-sidedock .workspace-tab-header-container,
-body.is-hidden-frameless .mod-sidedock .workspace-tab-header-container *,
-body.is-hidden-frameless .mod-sidedock .workspace-tab-header-spacer,
-body.is-hidden-frameless .mod-sidedock .workspace-sidedock-vault-profile,
-body.is-hidden-frameless .mod-sidedock .workspace-sidedock-vault-profile *,
-body.is-hidden-frameless .mod-sidedock .nav-buttons-container,
-body.is-hidden-frameless .mod-sidedock .nav-buttons-container *,
-body.is-hidden-frameless .mod-sidedock .nav-action-button,
-body.is-hidden-frameless .mod-sidedock .clickable-icon,
-body.is-hidden-frameless .mod-sidedock svg,
-body.is-hidden-frameless .mod-sidedock path,
-body:not(.is-mobile) .mod-sidedock,
-body:not(.is-mobile) .mod-sidedock *,
-body:not(.is-mobile) .mod-sidedock .workspace-tab-header-container,
-body:not(.is-mobile) .mod-sidedock .workspace-tab-header-container *,
-body:not(.is-mobile) .mod-sidedock .workspace-tab-header-spacer,
-body:not(.is-mobile) .mod-sidedock .workspace-sidedock-vault-profile,
-body:not(.is-mobile) .mod-sidedock .workspace-sidedock-vault-profile *,
-body:not(.is-mobile) .mod-sidedock .nav-buttons-container,
-body:not(.is-mobile) .mod-sidedock .nav-buttons-container *,
-body:not(.is-mobile) .mod-sidedock .nav-action-button,
-body:not(.is-mobile) .mod-sidedock .clickable-icon,
-body:not(.is-mobile) .mod-sidedock svg,
-body:not(.is-mobile) .mod-sidedock path,
-body .mod-sidedock,
-body .mod-sidedock *,
-body .mod-sidedock .workspace-tab-header-container,
-body .mod-sidedock .workspace-tab-header-container *,
-body .mod-sidedock .workspace-tab-header-spacer,
-body .mod-sidedock .workspace-sidedock-vault-profile,
-body .mod-sidedock .workspace-sidedock-vault-profile *,
-body .mod-sidedock .nav-buttons-container,
-body .mod-sidedock .nav-buttons-container *,
-body .mod-sidedock .nav-action-button,
-body .mod-sidedock .clickable-icon,
-body .mod-sidedock svg,
-body .mod-sidedock path {
+body.is-hidden-frameless *,
+body.is-hidden-frameless *::before,
+body.is-hidden-frameless *::after,
+body:not(.is-mobile) *,
+body:not(.is-mobile) *::before,
+body:not(.is-mobile) *::after,
+body *,
+body *::before,
+body *::after {
   -webkit-app-region: no-drag !important;
-  pointer-events: auto !important;
+}
+body.is-hidden-frameless .workspace-tabs.mod-top .workspace-tab-header-spacer:not(.mod-sidedock *),
+body.is-hidden-frameless .titlebar-text,
+body:not(.is-mobile) .workspace-tabs.mod-top .workspace-tab-header-spacer:not(.mod-sidedock *),
+body:not(.is-mobile) .titlebar-text,
+body .workspace-tabs.mod-top .workspace-tab-header-spacer:not(.mod-sidedock *),
+body .titlebar-text {
+  -webkit-app-region: drag !important;
 }
 
 .titlebar {

@@ -1,26 +1,26 @@
 ---
 name: e2e-prototyping
-description: Flujo de 3 fases para prototipado en vivo (CDP/DevTools), memoria axiomática y consolidación delegada a subagentes con Nix Flake.
+description: Flujo de 3 fases para prototipado en vivo (CDP/DevTools), memoria externa en MemorIA vault y consolidación delegada a subagentes con Nix Flake.
 ---
 
-# Workflow: Prototipado en Vivo, Memoria Axiomática y Delegación a Subagentes
+# Workflow: Prototipado en Vivo, Memoria en MemorIA y Delegación a Subagentes
 
-> **REGLA DE ORO**: El 80% del éxito radica en el análisis previo. El agente orquestador lidera el análisis y prototipado visual con el usuario, mientras que la documentación de lecciones y la escritura/compilación final se delegan a subagentes especializados.
+> **REGLA DE ORO**: El 80% del éxito radica en el análisis previo. La memoria reside de forma segura e inmune a Git en el vault central [`/home/manu/Documents/MemorIA/02_Projects/Mytheme/`](file:///home/manu/Documents/MemorIA/02_Projects/Mytheme).
 
 ---
 
 ## Fase 1: Análisis Total (Agente Orquestador)
 
-1. **Consulta de Memoria:**
-   - Revisar [`.agents/memory/architecture.md`](file:///home/manu/Documents/repositorios/Others/Mytheme/.agents/memory/architecture.md) para ubicar el módulo exacto en `src/`.
-   - Revisar [`.agents/memory/learnings.md`](file:///home/manu/Documents/repositorios/Others/Mytheme/.agents/memory/learnings.md) para respetar los axiomas técnicos conocidos (Electron, z-index, drag, flexbox).
+1. **Consulta de Memoria Central:**
+   - Revisar el mapa de módulos en [`architecture.md`](file:///home/manu/Documents/MemorIA/02_Projects/Mytheme/architecture.md).
+   - Revisar los axiomas técnicos conocidos en [`learnings.md`](file:///home/manu/Documents/MemorIA/02_Projects/Mytheme/learnings.md) (Electron, z-index, drag, flexbox).
 2. **Contraste con el Repositorio:**
-   - Buscar selectores existentes, variables de color/espaciado y reglas `@use` para no duplicar estilos.
+   - Buscar selectores existentes, variables de color/espaciado y reglas `@use` en `src/` para no duplicar estilos.
 3. **Inspección en Vivo (MCP DevTools / CDP):**
    - Inspeccionar el DOM real computado (`getBoundingClientRect`, `getComputedStyle`, clases de estado como `.is-sidedock-collapsed`).
    - Simular eventos (`hover`, `click`) para identificar restricciones de layout antes de proponer cambios.
-4. **Scope Lock:**
-   - Crear o actualizar el `PLAN.md` con las tareas atómicas en checkboxes (`[ ]`). No avanzar hasta tener el plan cerrado con el usuario.
+4. **Scope Lock y Plan:**
+   - Registrar el plan de trabajo con checkboxes atómicos (`[ ]`) en [`/home/manu/Documents/MemorIA/02_Projects/Mytheme/plans/YYYY-MM-DD-<feature>.md`](file:///home/manu/Documents/MemorIA/02_Projects/Mytheme/plans). No avanzar hasta tener el plan cerrado con el usuario.
 
 ---
 
@@ -32,11 +32,11 @@ description: Flujo de 3 fases para prototipado en vivo (CDP/DevTools), memoria a
 2. **Validación Visual Directa:**
    - El usuario valida directamente en su pantalla física la interacción y estética en tiempo real.
 3. **Registro y Check:**
-   - Con cada aprobación parcial del usuario, marcar `[x]` en `PLAN.md` y recolectar el bloque CSS exacto que funcionó.
+   - Con cada aprobación parcial del usuario, marcar `[x]` en el archivo del plan en `MemorIA/plans/` y guardar el bloque CSS exacto que funcionó.
 4. **Gestión de Errores y Subagente Sintetizador (Axioma > Inductivo):**
    - Si un prototipo no sale a la primera por un comportamiento oculto del framework/DOM:
      - El agente orquestador delega inmediatamente a un **Subagente Sintetizador** en background (`invoke_subagent`).
-     - El subagente deduce el principio general, ubica la sección correcta y actualiza [`.agents/memory/learnings.md`](file:///home/manu/Documents/repositorios/Others/Mytheme/.agents/memory/learnings.md).
+     - El subagente deduce el principio general, ubica la sección correcta y actualiza directamente [`learnings.md`](file:///home/manu/Documents/MemorIA/02_Projects/Mytheme/learnings.md) en el vault `MemorIA`.
    - **Formato Axiomático Estricto:**
      ```markdown
      ### [Axioma / Principio General]: Regla universal que rige el comportamiento.
@@ -47,7 +47,7 @@ description: Flujo de 3 fases para prototipado en vivo (CDP/DevTools), memoria a
 
 ## Fase 3: Consolidación Delegada (Subagente Implementador)
 
-Una vez completados y validados todos los checks de `PLAN.md` con el usuario:
+Una vez completados y validados todos los checks en el plan de `MemorIA` con el usuario:
 
 1. **Delegación a Subagente Implementador:**
    - El agente orquestador dispara un **Subagente Implementador / Builder** (`invoke_subagent` con write tools) pasándole la carga útil:

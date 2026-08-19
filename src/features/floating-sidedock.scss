@@ -143,29 +143,23 @@ body:not(.is-mobile) {
   }
 }
 
-// Complete and uncompromising NO-DRAG exemption for ALL sidedock headers and clickable controls
+// Neutralizar la máscara nativa de arrastre de Electron en Linux
 body.is-hidden-frameless,
 body:not(.is-mobile),
 body {
-  .mod-sidedock,
-  .mod-sidedock *,
-  .mod-sidedock .workspace-tab-header-container,
-  .mod-sidedock .workspace-tab-header-container *,
-  .mod-sidedock .workspace-tab-header-spacer,
-  .mod-sidedock .workspace-sidedock-vault-profile,
-  .mod-sidedock .workspace-sidedock-vault-profile *,
-  .mod-sidedock .nav-buttons-container,
-  .mod-sidedock .nav-buttons-container *,
-  .mod-sidedock .nav-action-button,
-  .mod-sidedock .clickable-icon,
-  .mod-sidedock svg,
-  .mod-sidedock path {
+  *,
+  *::before,
+  *::after {
     -webkit-app-region: no-drag !important;
-    pointer-events: auto !important;
+  }
+
+  // Únicamente los espacios vacíos designados permiten arrastrar/maximizar la ventana
+  .workspace-tabs.mod-top .workspace-tab-header-spacer:not(.mod-sidedock *),
+  .titlebar-text {
+    -webkit-app-region: drag !important;
   }
 }
 
-// Pass-through clicks and neutralize Electron titlebar drag zone over application content
 .titlebar {
   pointer-events: none !important;
   -webkit-app-region: no-drag !important;

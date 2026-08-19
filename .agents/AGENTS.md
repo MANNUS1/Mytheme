@@ -29,3 +29,8 @@ El proyecto utiliza Nix Flakes para gestionar las dependencias y scripts de comp
 Para prototipado en vivo mediante DevTools (CDP) e inyección en caliente sin mutar archivos antes de tiempo, consultar el flujo en:
 - [`.agents/workflows/e2e-prototyping.md`](file:///home/manu/Documents/repositorios/Others/Mytheme/.agents/workflows/e2e-prototyping.md)
 
+## 4. Memoria Externa del Proyecto (Vault MemorIA)
+La memoria, arquitectura y registro de lecciones residen fuera del control de versiones de Git para garantizar persistencia absoluta:
+- **Mapa de Arquitectura:** [`architecture.md`](file:///home/manu/Documents/MemorIA/02_Projects/Mytheme/architecture.md)
+- **Axiomas y Gotchas:** [`learnings.md`](file:///home/manu/Documents/MemorIA/02_Projects/Mytheme/learnings.md)
+- **Historial de Planes:** [`plans/`](file:///home/manu/Documents/MemorIA/02_Projects/Mytheme/plans)
