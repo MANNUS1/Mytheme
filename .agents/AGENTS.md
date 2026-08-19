@@ -1,4 +1,4 @@
-# Manutino - Directrices para Agentes
+# Mytheme - Directrices para Agentes
 
 ## 1. Reglas Críticas de Desarrollo
 - **Prohibido editar `theme.css` directamente:** Es un artefacto compilado. Cualquier cambio manual será sobreescrito.
@@ -19,6 +19,13 @@ El proyecto utiliza Nix Flakes para gestionar las dependencias y scripts de comp
   ```
   *(Dentro del devShell: `watch-theme`)*
 
+- **Instalar en vault de prueba:**
+  ```bash
+  nix develop --command install-theme
+  ```
+  *(Dentro del devShell: `install-theme`)*
+
 ## 3. Workflows
 Para prototipado en vivo mediante DevTools (CDP) e inyección en caliente sin mutar archivos antes de tiempo, consultar el flujo en:
-- [`.agents/workflows/e2e-prototyping.md`](file:///home/manu/Documents/repositorios/Others/manutino/.agents/workflows/e2e-prototyping.md)
+- [`.agents/workflows/e2e-prototyping.md`](file:///home/manu/Documents/repositorios/Others/Mytheme/.agents/workflows/e2e-prototyping.md)
+
