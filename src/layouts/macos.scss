@@ -13,7 +13,7 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) {
       opacity: 0.5;
     }
     .modal.mod-settings .vertical-tab-header,
-    .mod-sidedock.mod-left-split,
+    .mod-sidedock,
     .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header {
       background-color: var(--background-modifier-hover) !important;
       box-shadow: none !important;
@@ -58,7 +58,7 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) {
   &:not(.is-translucent).theme-dark .mod-sidedock {
     background-color: hsl(from var(--background-primary) h s calc(l - 2));
   }
-  &.is-translucent .mod-sidedock.mod-left-split {
+  &.is-translucent .mod-sidedock {
     background-color: rgba(from var(--background-primary) r g b / 50%) !important;
   }
   .mod-sidedock {

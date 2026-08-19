@@ -3348,7 +3348,7 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile):not(.is-focused):not(.re
   opacity: 0.5;
 }
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile):not(.is-focused):not(.reduce-contrast-change) .modal.mod-settings .vertical-tab-header,
-body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile):not(.is-focused):not(.reduce-contrast-change) .mod-sidedock.mod-left-split,
+body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile):not(.is-focused):not(.reduce-contrast-change) .mod-sidedock,
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile):not(.is-focused):not(.reduce-contrast-change) .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header {
   background-color: var(--background-modifier-hover) !important;
   box-shadow: none !important;
@@ -3383,7 +3383,7 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile).show-ribbon .workspace-r
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile):not(.is-translucent).theme-dark .mod-sidedock {
   background-color: hsl(from var(--background-primary) h s calc(l - 2));
 }
-body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile).is-translucent .mod-sidedock.mod-left-split {
+body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile).is-translucent .mod-sidedock {
   background-color: rgba(from var(--background-primary) r g b/50%) !important;
 }
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock {
@@ -3474,9 +3474,6 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) {
 }
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-left-split {
   margin-right: 8px;
-}
-body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-right-split {
-  background-color: transparent !important;
 }
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-right-split > .workspace-leaf-resize-handle {
   border-color: transparent;
@@ -7034,6 +7031,7 @@ body:not(.is-mobile) .mod-sidedock .workspace-tabs,
 body:not(.is-mobile) .mod-sidedock .workspace-leaf,
 body:not(.is-mobile) .mod-sidedock .workspace-leaf-content,
 body:not(.is-mobile) .mod-sidedock .workspace-tab-container,
+body:not(.is-mobile) .mod-sidedock .view-header,
 body:not(.is-mobile) .mod-sidedock .view-content,
 body:not(.is-mobile) .mod-sidedock .nav-files-container,
 body:not(.is-mobile) .mod-sidedock .workspace-tab-header-container,
@@ -7173,7 +7171,7 @@ body.is-android:not(.adaptive-mode-off) .nav-files-container > div {
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .nav-files-container > div {
-  --nav-item-background-hover: transparent;
+  --nav-item-background-hover: var(--background-modifier-hover);
   --nav-item-background-active: var(--background-modifier-hover);
   --nav-item-color: var(--text-normal);
   --nav-item-color-hover: var(--text-normal);
