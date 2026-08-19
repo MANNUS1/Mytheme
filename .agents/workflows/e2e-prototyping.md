@@ -1,39 +1,64 @@
 ---
 name: e2e-prototyping
-description: Flujo iterativo para prototipado en vivo (vía Devtools/CDP) y desarrollo continuo con Nix Flake. Prioridad absoluta en rendimiento.
+description: Flujo de 3 fases para prototipado en vivo (CDP/DevTools), memoria axiomática y consolidación delegada a subagentes con Nix Flake.
 ---
 
-# Workflow: Prototipado en Vivo y Consolidación
+# Workflow: Prototipado en Vivo, Memoria Axiomática y Delegación a Subagentes
 
-> **PRIORIDAD CRÍTICA - RENDIMIENTO**: Cualquier código implementado debe estar altamente optimizado. Evita el "layout thrashing", usa selectores eficientes, prioriza propiedades aceleradas por GPU (como `opacity` y `transform`) sobre aquellas que causan repaints, y minimiza el impacto en CPU/RAM.
+> **REGLA DE ORO**: El 80% del éxito radica en el análisis previo. El agente orquestador lidera el análisis y prototipado visual con el usuario, mientras que la documentación de lecciones y la escritura/compilación final se delegan a subagentes especializados.
 
-## Fase 1: Análisis Fantasma y Scope Lock
-1. Acuerda las "N" features (MVP) y documéntalas en el plan de trabajo.
-2. **Análisis Fantasma**: Usa el MCP de devtools para inspeccionar profundamente el DOM y simular interacciones ocultas (`hover`, `click`) para diagnosticar el bug computado en CSS antes de sugerir arreglos.
-3. **STOP**: No avances hasta que el usuario apruebe el alcance del plan.
+---
 
-## Fase 2: Entorno y Prototipado en Vivo
-1. **Branch:** Crea tu rama: `git checkout -b feature/<nombre-corto>`.
-2. **Compilación Continua (Watch Theme):** Inicia el watcher en una ventana dedicada de tmux (`tmux new-window -n theme-watcher 'nix develop --command watch-theme'`):
-   ```bash
-   nix develop --command watch-theme
-   ```
-   *(Garantiza que cualquier cambio guardado en `src/` compile de inmediato a `theme.css` y se sincronice vía symlink en `/home/manu/Documents/repositorios/Dots/obsidian/template/.obsidian/themes/Mytheme`).*
-3. **Bóveda de pruebas:** Inicia Obsidian con el puerto de depuración DevTools (CDP) expuesto.
-4. **Prototipado en memoria:** Inyecta soluciones dinámicas directamente en memoria usando `evaluate_script` (devtools).
-5. **Cero Screenshots / Latencia Cero:** Prohibido tomar capturas de pantalla automáticas. La retroalimentación se basa en métricas de DOM computadas (`getBoundingClientRect`, `getComputedStyle`) y la validación visual inmediata del usuario en su pantalla física.
+## Fase 1: Análisis Total (Agente Orquestador)
 
-## Fase 3: Feedback y Recolección
-1. Itera inyectando ajustes al DOM según las instrucciones del usuario.
-2. Con cada "Visto Bueno" parcial, **guarda el bloque de código exacto** que funcionó y marca "check" a la feature correspondiente.
+1. **Consulta de Memoria:**
+   - Revisar [`.agents/memory/architecture.md`](file:///home/manu/Documents/repositorios/Others/Mytheme/.agents/memory/architecture.md) para ubicar el módulo exacto en `src/`.
+   - Revisar [`.agents/memory/learnings.md`](file:///home/manu/Documents/repositorios/Others/Mytheme/.agents/memory/learnings.md) para respetar los axiomas técnicos conocidos (Electron, z-index, drag, flexbox).
+2. **Contraste con el Repositorio:**
+   - Buscar selectores existentes, variables de color/espaciado y reglas `@use` para no duplicar estilos.
+3. **Inspección en Vivo (MCP DevTools / CDP):**
+   - Inspeccionar el DOM real computado (`getBoundingClientRect`, `getComputedStyle`, clases de estado como `.is-sidedock-collapsed`).
+   - Simular eventos (`hover`, `click`) para identificar restricciones de layout antes de proponer cambios.
+4. **Scope Lock:**
+   - Crear o actualizar el `PLAN.md` con las tareas atómicas en checkboxes (`[ ]`). No avanzar hasta tener el plan cerrado con el usuario.
 
-## Fase 4: Consolidación Final
-1. Procede a modificar los archivos reales dentro de `src/` (ej. `src/theme.scss`, `src/features/`, etc.).
-2. El watcher compilará automáticamente `theme.css`.
-3. Verifica que las prioridades de **rendimiento** estricto se mantengan.
+---
 
-## Fase 5: Merge y Cierre
-1. Pide el "Visto Bueno" final.
-2. Ejecuta `git add`, `git commit` (siguiendo Conventional Commits) y `git merge` a la rama principal.
-3. Sincroniza con el repositorio remoto (`git push`).
+## Fase 2: Prototipado en Caliente & Aprendizaje Axiomático Asíncrono
 
+1. **Inyección en Memoria (Cero mutación de archivos):**
+   - Inyectar soluciones dinámicas directamente en el DOM mediante DevTools (`evaluate_script`).
+   - **Regla del Tag Único:** Usar siempre `<style id="agent-preview">...</style>` y reemplazar su contenido en cada prueba para no acumular basura de iteraciones anteriores.
+2. **Validación Visual Directa:**
+   - El usuario valida directamente en su pantalla física la interacción y estética en tiempo real.
+3. **Registro y Check:**
+   - Con cada aprobación parcial del usuario, marcar `[x]` en `PLAN.md` y recolectar el bloque CSS exacto que funcionó.
+4. **Gestión de Errores y Subagente Sintetizador (Axioma > Inductivo):**
+   - Si un prototipo no sale a la primera por un comportamiento oculto del framework/DOM:
+     - El agente orquestador delega inmediatamente a un **Subagente Sintetizador** en background (`invoke_subagent`).
+     - El subagente deduce el principio general, ubica la sección correcta y actualiza [`.agents/memory/learnings.md`](file:///home/manu/Documents/repositorios/Others/Mytheme/.agents/memory/learnings.md).
+   - **Formato Axiomático Estricto:**
+     ```markdown
+     ### [Axioma / Principio General]: Regla universal que rige el comportamiento.
+     - **Ejemplo concreto:** Selector o caso específico encontrado en Obsidian/Electron.
+     ```
+
+---
+
+## Fase 3: Consolidación Delegada (Subagente Implementador)
+
+Una vez completados y validados todos los checks de `PLAN.md` con el usuario:
+
+1. **Delegación a Subagente Implementador:**
+   - El agente orquestador dispara un **Subagente Implementador / Builder** (`invoke_subagent` con write tools) pasándole la carga útil:
+     - Lista de archivos SCSS destino en `src/`.
+     - Bloques de código CSS/SCSS validados en la Fase 2.
+     - Mensaje para el commit.
+2. **Ejecución y Compilación por el Subagente:**
+   - Escribe quirúrgicamente los cambios en `src/*.scss`.
+   - Ejecuta la compilación con Nix: `nix develop --command build-theme`.
+   - Valida que `theme.css` se genere sin errores ni advertencias de compilación.
+3. **Git Hygiene & Cierre:**
+   - Revisa `git status` y `git diff` para asegurar cero efectos secundarios.
+   - Realiza el commit semántico (ej. `feat(sidedock): add floating acrylic sidedock`).
+   - Ejecuta `git push` y reporta el éxito de la operación al agente orquestador.
